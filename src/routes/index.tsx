@@ -4,7 +4,9 @@ import { ApiResponse } from '@/types'
 
 export const Route = createFileRoute('/')({
   loader: async () => {
-    const response = await fetch('http://localhost:3000/api/iss')
+    const response = await fetch(
+      'https://api.wheretheiss.at/v1/satellites/25544',
+    )
     return (await response.json()) as ApiResponse
   },
   component: App,
