@@ -1,0 +1,40 @@
+import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+import { RootDocument } from '@/pages/RootDocument'
+import appCss from '@/styles/app.css?url'
+import type { QueryClient } from '@tanstack/react-query'
+
+interface MyRouterContext {
+  queryClient: QueryClient
+}
+
+function RootComponent() {
+  return (
+    <RootDocument>
+      <Outlet />
+    </RootDocument>
+  )
+}
+
+export const Route = createRootRouteWithContext<MyRouterContext>()({
+  head: () => ({
+    meta: [
+      {
+        charSet: 'utf-8',
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
+      },
+      {
+        title: 'ISS Information',
+      },
+    ],
+
+    links: [
+      { rel: 'stylesheet', href: appCss },
+      { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  }),
+
+  shellComponent: RootComponent,
+})
