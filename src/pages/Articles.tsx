@@ -2,9 +2,9 @@ import { getRouteApi, Link } from '@tanstack/react-router'
 import { Container } from '@/components/layout/Container'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Image } from '@unpic/react'
-import AstronautPlaceholder from '@/assets/images/astronaut-placeholder.jpg'
+import NasaPlaceholder from '@/assets/images/nasa-placeholder.jpg'
 import { PostPagination } from '@/components/Pagination'
-import { truncate } from '@/lib/utils'
+import { fixImageLinks, truncate } from '@/lib/utils'
 
 export const Articles = () => {
   const routeApi = getRouteApi('/articles/{-$page}')
@@ -24,12 +24,12 @@ export const Articles = () => {
               <Card className="flex flex-col h-full">
                 <Image
                   alt={item.title}
-                  src={item.image_url || AstronautPlaceholder}
+                  src={fixImageLinks(item.image_url) || NasaPlaceholder}
                   height={400}
                   width={400}
                   className="object-cover w-full object-center h-80 rounded-t-xl"
                 />
-                <CardHeader className="flex justify-between items-center">
+                <CardHeader>
                   <h2>{item.title}</h2>
                 </CardHeader>
 
