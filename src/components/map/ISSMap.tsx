@@ -1,6 +1,6 @@
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { UpdateMapCenter } from './UpdateMapCenter'
-import { ISSIcon } from '../ISSIcon'
+import { ISSIcon } from './ISSIcon'
 import { ISSInfoCard } from './ISSInfoCard'
 
 export type MapProps = {
