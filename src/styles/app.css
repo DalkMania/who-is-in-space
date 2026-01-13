@@ -1,9 +1,18 @@
+@import '@fontsource-variable/mona-sans';
+@import '@fontsource-variable/geist';
 @import 'tailwindcss';
 @config "../../tailwind.config.ts";
 @import 'tw-animate-css';
 @import 'leaflet/dist/leaflet.css';
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans:
+    'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-heading: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+}
 
 :root {
   --background: hsl(0 0% 100%);
@@ -104,7 +113,7 @@
   h4,
   h5,
   h6 {
-    @apply font-serif font-bold tracking-wide;
+    @apply font-heading font-bold tracking-wide;
   }
   button:not(:disabled),
   [role='button']:not(:disabled) {
