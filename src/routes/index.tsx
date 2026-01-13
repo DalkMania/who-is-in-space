@@ -5,7 +5,7 @@ import { ApiResponse } from '@/types'
 export const Route = createFileRoute('/')({
   loader: async () => {
     const response = await fetch(
-      'https://api.wheretheiss.at/v1/satellites/25544',
+      'https://api.wheretheiss.at/v1/satellites/25544?units=miles',
     )
     return (await response.json()) as ApiResponse
   },

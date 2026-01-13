@@ -10,7 +10,7 @@ export const useISSPosition = (initialData: ApiResponse) =>
     queryFn: async () => {
       try {
         const response = await fetch(
-          'https://api.wheretheiss.at/v1/satellites/25544',
+          'https://api.wheretheiss.at/v1/satellites/25544?units=miles',
         )
         const data = await response.json()
         return data as ApiResponse
