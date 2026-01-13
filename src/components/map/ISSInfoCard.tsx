@@ -17,7 +17,7 @@ export const ISSInfoCard = ({
   units,
 }: InformationProps) => {
   return (
-    <Card className="absolute z-400 top-16 right-3 w-full max-w-75 bg-black/80 backdrop-blur supports-backdrop-filter:bg-black/80">
+    <Card className="absolute z-400 top-16 right-3 w-full max-w-75 bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/80">
       <CardHeader>
         <h2 className="text-lg text-center">ISS Information</h2>
       </CardHeader>

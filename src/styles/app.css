@@ -1,8 +1,9 @@
 @import '@fontsource-variable/mona-sans';
 @import '@fontsource-variable/geist';
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 @config "../../tailwind.config.ts";
-@import 'tw-animate-css';
+@plugin "tailwindcss-animate";
 @import 'leaflet/dist/leaflet.css';
 
 @custom-variant dark (&:is(.dark *));
@@ -107,6 +108,7 @@
   body {
     @apply bg-background text-foreground;
   }
+
   h1,
   h2,
   h3,
@@ -118,6 +120,36 @@
   button:not(:disabled),
   [role='button']:not(:disabled) {
     cursor: pointer;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.prose-headings {
+  @apply text-inherit;
+}
+
+.prose {
+  @apply text-foreground;
+
+  a {
+    @apply text-sky-500 no-underline;
+
+    &:hover {
+      @apply text-sky-200;
+    }
+  }
+
+  strong {
+    @apply text-inherit;
+  }
+
+  .lead {
+    @apply font-heading font-bold tracking-wide leading-relaxed text-muted-foreground;
   }
 }
 
