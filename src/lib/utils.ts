@@ -5,11 +5,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function timeConvert(n: number) {
-  var num = n
-  var hours = num / 60
-  var rhours = Math.floor(hours)
-  var minutes = (hours - rhours) * 60
-  var rminutes = Math.round(minutes)
-  return rhours + ' h ' + rminutes + ' min'
+export function formatNumber(n: number, unit: string): string {
+  return `${n.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })} ${unit}`
 }

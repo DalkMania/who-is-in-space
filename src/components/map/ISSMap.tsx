@@ -1,13 +1,17 @@
 import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { UpdateMapCenter } from './UpdateMapCenter'
-import { ISSIcon } from './ISSIcon'
+import { ISSIcon } from '../ISSIcon'
+import { ISSInfoCard } from './ISSInfoCard'
 
-type MapPosition = {
+export type MapProps = {
   latitude: number
   longitude: number
+  altitude: number
+  velocity: number
+  units: 'kilometers' | 'miles'
 }
 
-export const ISSMap = ({ latitude, longitude }: MapPosition) => {
+export const ISSMap = ({ latitude, longitude, ...props }: MapProps) => {
   return (
     <MapContainer
       style={{
@@ -27,6 +31,7 @@ export const ISSMap = ({ latitude, longitude }: MapPosition) => {
       />
       <Marker position={[latitude, longitude]} icon={ISSIcon} />
       <UpdateMapCenter mapCenter={[latitude, longitude]} />
+      <ISSInfoCard latitude={latitude} longitude={longitude} {...props} />
     </MapContainer>
   )
 }

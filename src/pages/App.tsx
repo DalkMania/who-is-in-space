@@ -10,9 +10,7 @@ export const App = () => {
 
   return (
     <ClientOnly fallback={<Loader />}>
-      {isFetched && position && (
-        <ISSMap latitude={position.latitude} longitude={position.longitude} />
-      )}
+      {isFetched && position && <ISSMap {...position} />}
     </ClientOnly>
   )
 }
