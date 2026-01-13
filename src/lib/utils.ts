@@ -11,3 +11,7 @@ export function formatNumber(n: number, unit: string): string {
     maximumFractionDigits: 2,
   })} ${unit}`
 }
+
+export function truncate(str: string, maxlength: number) {
+  return str.length > maxlength ? str.slice(0, maxlength - 1) + '…' : str
+}

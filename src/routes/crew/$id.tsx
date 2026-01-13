@@ -9,4 +9,6 @@ export const Route = createFileRoute('/crew/$id')({
     return await response.json()
   },
   component: CrewDetail,
+  staleTime: Infinity,
+  shouldReload: false,
 })
