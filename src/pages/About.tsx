@@ -20,8 +20,11 @@ export const About = () => {
           src={ISS}
           height={800}
           width={800}
-          className="object-cover w-full object-center rounded-xl"
+          className="object-cover w-full object-center rounded-xl not-prose"
         />
+        <span className="text-sm pl-2 pb-2">
+          The International Space Station
+        </span>
         <p>
           Orbiting some 400km (250 miles) above the Earth, the ISS represents
           one of mankind's most ambitious engineering projects. Since the first

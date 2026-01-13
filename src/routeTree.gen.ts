@@ -13,6 +13,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CrewIndexRouteImport } from './routes/crew/index'
 import { Route as CrewIdRouteImport } from './routes/crew/$id'
+import { Route as ArticlesChar123PageChar125RouteImport } from './routes/articles/{-$page}'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -34,16 +35,24 @@ const CrewIdRoute = CrewIdRouteImport.update({
   path: '/crew/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticlesChar123PageChar125Route =
+  ArticlesChar123PageChar125RouteImport.update({
+    id: '/articles/{-$page}',
+    path: '/articles/{-$page}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
   '/crew/$id': typeof CrewIdRoute
   '/crew': typeof CrewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
   '/crew/$id': typeof CrewIdRoute
   '/crew': typeof CrewIndexRoute
 }
@@ -51,20 +60,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
   '/crew/$id': typeof CrewIdRoute
   '/crew/': typeof CrewIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/crew/$id' | '/crew'
+  fullPaths: '/' | '/about' | '/articles/{-$page}' | '/crew/$id' | '/crew'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/crew/$id' | '/crew'
-  id: '__root__' | '/' | '/about' | '/crew/$id' | '/crew/'
+  to: '/' | '/about' | '/articles/{-$page}' | '/crew/$id' | '/crew'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/articles/{-$page}'
+    | '/crew/$id'
+    | '/crew/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ArticlesChar123PageChar125Route: typeof ArticlesChar123PageChar125Route
   CrewIdRoute: typeof CrewIdRoute
   CrewIndexRoute: typeof CrewIndexRoute
 }
@@ -99,12 +116,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CrewIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/articles/{-$page}': {
+      id: '/articles/{-$page}'
+      path: '/articles/{-$page}'
+      fullPath: '/articles/{-$page}'
+      preLoaderRoute: typeof ArticlesChar123PageChar125RouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ArticlesChar123PageChar125Route: ArticlesChar123PageChar125Route,
   CrewIdRoute: CrewIdRoute,
   CrewIndexRoute: CrewIndexRoute,
 }
