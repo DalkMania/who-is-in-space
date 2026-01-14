@@ -1,13 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { App } from '@/pages/App'
-import { ApiResponse } from '@/types'
 
 export const Route = createFileRoute('/')({
   loader: async () => {
     const response = await fetch(
-      'https://api.wheretheiss.at/v1/satellites/25544?units=miles',
+      `https://api.spaceflightnewsapi.net/v4/articles/?limit=3&format=json&news_site=NASA`,
     )
-    return (await response.json()) as ApiResponse
+    const results = await response.json()
+    return results.results
   },
   component: App,
 })
+
+// /launches/upcoming/?format=json
