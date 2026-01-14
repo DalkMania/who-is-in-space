@@ -21,7 +21,12 @@ export const Crew = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
           {crewData?.results?.map((item: any) => (
-            <Link to="/crew/$id" params={{ id: item.id }} key={item.id}>
+            <Link
+              to="/crew/$id"
+              preload={false}
+              params={{ id: item.id }}
+              key={item.id}
+            >
               <Card>
                 <Image
                   height={320}
