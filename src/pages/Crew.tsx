@@ -27,7 +27,7 @@ export const Crew = () => {
               params={{ id: item.id }}
               key={item.id}
             >
-              <Card>
+              <Card className="flex flex-col h-full">
                 <Image
                   height={320}
                   alt={item.name}
@@ -45,7 +45,7 @@ export const Crew = () => {
                     className="h-6"
                   />
                 </CardHeader>
-                <CardContent className="text-sm">
+                <CardContent className="text-sm mt-auto">
                   <p>
                     Flights: <span>{item.flights_count}</span>
                   </p>
