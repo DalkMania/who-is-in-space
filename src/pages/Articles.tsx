@@ -18,7 +18,7 @@ export const Articles = () => {
         <p className="lead text-center">
           Spaceflight-related news articles from NASA
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 not-prose">
           {articleData?.results?.map((item: any) => (
             <Link to={item.url} key={item.id} target="_blank">
               <Card className="flex flex-col h-full">
