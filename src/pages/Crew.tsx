@@ -11,7 +11,7 @@ export const Crew = () => {
   return (
     <Container>
       <div className="prose lg:prose-xl max-w-none! py-12">
-        <h2 className="w-full text-center">Current ISS Crew</h2>
+        <h1 className="w-full text-center">Current ISS Crew</h1>
         <p className="lead">
           The International Space Station (ISS) mission is to serve as a unique
           microgravity laboratory for scientific research, enabling long-term

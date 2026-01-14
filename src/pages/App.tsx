@@ -1,16 +1,17 @@
-import { ClientOnly, getRouteApi } from '@tanstack/react-router'
-import { useISSPosition } from '@/queries/useISSPosition'
-import { Loader } from '@/components/Loader'
-import { ISSMap } from '@/components/map/ISSMap'
+import { Container } from '@/components/layout/Container'
 
 export const App = () => {
-  const routeApi = getRouteApi('/')
-  const initialData = routeApi.useLoaderData()
-  const { data: position, isFetched } = useISSPosition(initialData)
-
   return (
-    <ClientOnly fallback={<Loader />}>
-      {isFetched && position && <ISSMap {...position} />}
-    </ClientOnly>
+    <Container>
+      <div className="prose lg:prose-xl max-w-none! py-12">
+        <h1 className="w-full text-center">Who's in Space ?</h1>
+        <p className="lead text-center">
+          A Website about Space, the International Space Station (ISS) and who
+          is currently up there. The station's mission is to serve as a unique
+          microgravity laboratory for scientific research, enabling long-term
+          human space exploration and providing benefits to Earth.
+        </p>
+      </div>
+    </Container>
   )
 }

@@ -121,6 +121,10 @@
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
+  a[aria-current='page'],
+  a:hover {
+    @apply text-muted-foreground;
+  }
 }
 
 h1,

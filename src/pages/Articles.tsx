@@ -14,7 +14,7 @@ export const Articles = () => {
   return (
     <Container>
       <div className="prose lg:prose-xl max-w-none! pt-12 pb-6">
-        <h2 className="w-full text-center">Articles</h2>
+        <h1 className="w-full text-center">Articles</h1>
         <p className="lead text-center">
           Spaceflight-related news articles from NASA
         </p>

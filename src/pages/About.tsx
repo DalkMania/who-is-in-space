@@ -6,9 +6,9 @@ export const About = () => {
   return (
     <Container>
       <div className="prose lg:prose-xl max-w-none! py-12">
-        <h2 className="w-full text-center">
+        <h1 className="w-full text-center">
           About the International Space Station
-        </h2>
+        </h1>
         <p className="lead">
           The International Space Station (ISS) mission is to serve as a unique
           microgravity laboratory for scientific research, enabling long-term

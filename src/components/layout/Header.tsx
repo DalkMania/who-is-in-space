@@ -2,6 +2,8 @@ import { useRef } from 'react'
 
 import { Container } from '@/components/layout/Container'
 import { useSticky } from '@/hooks/useSticky'
+import { Link } from '@tanstack/react-router'
+import { Navigation } from '../Navigation'
 
 export const Header = () => {
   const headerRef = useRef(null)
@@ -18,7 +20,12 @@ export const Header = () => {
       role="banner"
       ref={headerRef}
     >
-      <Container>Stuff</Container>
+      <Container className="flex items-center justify-between">
+        <Link to="/" className="text-foreground!">
+          <h1 className="text-lg">Who's in Space?</h1>
+        </Link>
+        <Navigation />
+      </Container>
     </header>
   )
 }

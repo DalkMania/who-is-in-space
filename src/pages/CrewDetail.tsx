@@ -10,7 +10,7 @@ export const CrewDetail = () => {
   return (
     <Container>
       <div className="prose lg:prose-xl max-w-none! py-12 ">
-        <h2 className="w-full text-center">{crewDetail.name}</h2>
+        <h1 className="w-full text-center">{crewDetail.name}</h1>
         <div className="flex gap-24 justify-between">
           <p>{crewDetail.bio}</p>
           <Image

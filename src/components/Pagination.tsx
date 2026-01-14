@@ -113,7 +113,7 @@ export const PostPagination = ({
         {renderPageNumbers()}
 
         <PaginationNext
-          href={`/articles/${currentPage - 2}`}
+          href={`/articles/${currentPage + 1}`}
           aria-disabled={currentPage === numPages}
           tabIndex={currentPage === numPages ? -1 : undefined}
           className={
