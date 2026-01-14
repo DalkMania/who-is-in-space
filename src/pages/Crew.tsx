@@ -19,15 +19,15 @@ export const Crew = () => {
           astronauts currently in space.
         </p>
 
-        <div className="grid grid-cols-4 gap-8 pt-8 not-prose">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
           {crewData?.results?.map((item: any) => (
             <Link to="/crew/$id" params={{ id: item.id }} key={item.id}>
               <Card>
                 <Image
+                  height={320}
                   alt={item.name}
                   src={item?.image?.image_url || AstronautPlaceholder}
-                  height={800}
-                  width={800}
+                  aspectRatio={750 / 320}
                   className="object-cover w-full object-center h-80 rounded-t-xl"
                 />
                 <CardHeader className="flex justify-between items-center">

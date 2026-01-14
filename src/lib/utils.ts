@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import sanitizeHtml from 'sanitize-html'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -22,4 +23,16 @@ export function fixImageLinks(src: string): null | string {
   }
 
   return src
+}
+
+export function sanitizeWikipediaEntry(data: string): string {
+  return sanitizeHtml(data)
+    .replaceAll('\n', '')
+    .replaceAll('<p></p>', '')
+    .replace(
+      /(<h.>External links<\/h.>.*<ul|ol>).*<li>(.*)<\/li>.*(<\/ul>|<\/ol>)/,
+      '',
+    )
+    .replace(/<h.>References<\/h.>/, '')
+    .replace(/<h.>External links<\/h.>/, '')
 }
