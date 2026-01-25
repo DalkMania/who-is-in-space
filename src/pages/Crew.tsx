@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { getRouteApi, Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import AstronautPlaceholder from '@/assets/images/astronaut-placeholder.jpg'
+import { slugify } from '@/lib/utils'
 
 export const Crew = () => {
   const routeApi = getRouteApi('/crew/')
@@ -22,10 +23,12 @@ export const Crew = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
           {crewData?.results?.map((item: any) => (
             <Link
-              to="/crew/$id"
-              preload={false}
-              params={{ id: item.id }}
+              to="/crew/$slug"
+              params={{ slug: slugify(item.name) }}
               key={item.id}
+              state={{
+                crew: { name: item.name, wiki: item.wiki, bio: item.bio },
+              }}
             >
               <Card className="flex flex-col h-full">
                 <Image

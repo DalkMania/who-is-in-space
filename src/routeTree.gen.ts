@@ -13,7 +13,7 @@ import { Route as IssInformationRouteImport } from './routes/iss-information'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CrewIndexRouteImport } from './routes/crew/index'
-import { Route as CrewIdRouteImport } from './routes/crew/$id'
+import { Route as CrewSlugRouteImport } from './routes/crew/$slug'
 import { Route as ArticlesChar123PageChar125RouteImport } from './routes/articles/{-$page}'
 
 const IssInformationRoute = IssInformationRouteImport.update({
@@ -36,9 +36,9 @@ const CrewIndexRoute = CrewIndexRouteImport.update({
   path: '/crew/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CrewIdRoute = CrewIdRouteImport.update({
-  id: '/crew/$id',
-  path: '/crew/$id',
+const CrewSlugRoute = CrewSlugRouteImport.update({
+  id: '/crew/$slug',
+  path: '/crew/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ArticlesChar123PageChar125Route =
@@ -53,15 +53,15 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/iss-information': typeof IssInformationRoute
   '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
-  '/crew/$id': typeof CrewIdRoute
-  '/crew': typeof CrewIndexRoute
+  '/crew/$slug': typeof CrewSlugRoute
+  '/crew/': typeof CrewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/iss-information': typeof IssInformationRoute
   '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
-  '/crew/$id': typeof CrewIdRoute
+  '/crew/$slug': typeof CrewSlugRoute
   '/crew': typeof CrewIndexRoute
 }
 export interface FileRoutesById {
@@ -70,7 +70,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/iss-information': typeof IssInformationRoute
   '/articles/{-$page}': typeof ArticlesChar123PageChar125Route
-  '/crew/$id': typeof CrewIdRoute
+  '/crew/$slug': typeof CrewSlugRoute
   '/crew/': typeof CrewIndexRoute
 }
 export interface FileRouteTypes {
@@ -80,15 +80,15 @@ export interface FileRouteTypes {
     | '/about'
     | '/iss-information'
     | '/articles/{-$page}'
-    | '/crew/$id'
-    | '/crew'
+    | '/crew/$slug'
+    | '/crew/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/iss-information'
     | '/articles/{-$page}'
-    | '/crew/$id'
+    | '/crew/$slug'
     | '/crew'
   id:
     | '__root__'
@@ -96,7 +96,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/iss-information'
     | '/articles/{-$page}'
-    | '/crew/$id'
+    | '/crew/$slug'
     | '/crew/'
   fileRoutesById: FileRoutesById
 }
@@ -105,7 +105,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   IssInformationRoute: typeof IssInformationRoute
   ArticlesChar123PageChar125Route: typeof ArticlesChar123PageChar125Route
-  CrewIdRoute: typeof CrewIdRoute
+  CrewSlugRoute: typeof CrewSlugRoute
   CrewIndexRoute: typeof CrewIndexRoute
 }
 
@@ -135,15 +135,15 @@ declare module '@tanstack/react-router' {
     '/crew/': {
       id: '/crew/'
       path: '/crew'
-      fullPath: '/crew'
+      fullPath: '/crew/'
       preLoaderRoute: typeof CrewIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/crew/$id': {
-      id: '/crew/$id'
-      path: '/crew/$id'
-      fullPath: '/crew/$id'
-      preLoaderRoute: typeof CrewIdRouteImport
+    '/crew/$slug': {
+      id: '/crew/$slug'
+      path: '/crew/$slug'
+      fullPath: '/crew/$slug'
+      preLoaderRoute: typeof CrewSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/articles/{-$page}': {
@@ -161,7 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   IssInformationRoute: IssInformationRoute,
   ArticlesChar123PageChar125Route: ArticlesChar123PageChar125Route,
-  CrewIdRoute: CrewIdRoute,
+  CrewSlugRoute: CrewSlugRoute,
   CrewIndexRoute: CrewIndexRoute,
 }
 export const routeTree = rootRouteImport
