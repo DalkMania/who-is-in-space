@@ -1,13 +1,10 @@
 import { Container } from '@/components/layout/Container'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
-import { Image } from '@unpic/react'
-import NasaPlaceholder from '@/assets/images/nasa-placeholder.jpg'
-import { getRouteApi, Link } from '@tanstack/react-router'
-import { fixImageLinks, truncate } from '@/lib/utils'
+import { getRouteApi } from '@tanstack/react-router'
+import { ArticleCard } from '@/components/ArticleCard'
 
 export const App = () => {
   const routeApi = getRouteApi('/')
-  const articleData = routeApi.useLoaderData()
+  const { results } = routeApi.useLoaderData()
 
   return (
     <Container>
@@ -21,29 +18,9 @@ export const App = () => {
         </p>
         <h2>Recent Articles from NASA</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 not-prose">
-          {articleData.map((item: any) => (
-            <Link to={item.url} key={item.id} target="_blank">
-              <Card className="flex flex-col h-full">
-                <Image
-                  alt={item.title}
-                  src={fixImageLinks(item.image_url) || NasaPlaceholder}
-                  height={400}
-                  width={400}
-                  className="object-cover w-full object-center h-80 rounded-t-xl"
-                />
-                <CardHeader>
-                  <h2>{item.title}</h2>
-                </CardHeader>
-
-                <CardContent className="text-base leading-relaxed flex-1">
-                  <p>{truncate(item.summary, 110)}</p>
-                </CardContent>
-                <CardFooter>
-                  <p className="mt-auto">{item.news_site}</p>
-                </CardFooter>
-              </Card>
-            </Link>
-          ))}
+          {results.map((item) => {
+            return <ArticleCard {...item} key={item.id} />
+          })}
         </div>
       </div>
     </Container>
