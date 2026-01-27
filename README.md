@@ -1,6 +1,6 @@
 ## Who's in Space?
 
-A website about Space, using the Tanstack Libraries and how to use it with differtent APIs.
+A website about Space, using the Tanstack Libraries and differtent APIs.
 
 The International Space Station (ISS) and who is currently up there. The station's mission is to serve as a unique
 microgravity laboratory for scientific research, enabling long-term
