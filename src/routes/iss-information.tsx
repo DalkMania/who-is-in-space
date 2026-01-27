@@ -9,5 +9,16 @@ export const Route = createFileRoute('/iss-information')({
     )
     return (await response.json()) as ApiResponse
   },
+  head: () => ({
+    meta: [
+      {
+        name: 'description',
+        content: 'Where is the ISS right now?',
+      },
+      {
+        title: "Who's in Space | ISS Information",
+      },
+    ],
+  }),
   component: ISSInformation,
 })

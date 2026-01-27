@@ -30,6 +30,6 @@ export const CrewDetail = () => {
 
 declare module '@tanstack/react-router' {
   interface HistoryState {
-    crew?: { name: string; wiki: string; bio: string }
+    crew?: { name: string; wiki: string | null; bio: string }
   }
 }
