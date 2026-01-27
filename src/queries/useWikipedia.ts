@@ -1,3 +1,4 @@
+import { WikiResponse } from '@/types'
 import { useQuery } from '@tanstack/react-query'
 
 export const useWikipedia = (title: string) =>
@@ -10,7 +11,7 @@ export const useWikipedia = (title: string) =>
           `https://en.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&indexpageids=true&titles=${encodeURIComponent(title)}&format=json&redirects=true&formatversion=2`,
         )
         const data = await response.json()
-        return data.query.pages[0]
+        return data.query.pages[0] as WikiResponse
       } catch (error: any) {
         console.error('Error fetching data:', error)
       }

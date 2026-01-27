@@ -21,8 +21,8 @@ export const Header = () => {
       ref={headerRef}
     >
       <Container className="flex items-center justify-between">
-        <Link to="/" className="text-foreground!">
-          <h1 className="text-lg">Who's in Space?</h1>
+        <Link to="/" className="text-foreground! font-bold ">
+          <span className="text-lg tracking-wide">Who's in Space?</span>
         </Link>
         <Navigation />
       </Container>
