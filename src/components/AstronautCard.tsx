@@ -27,10 +27,11 @@ export const AstronautCard = ({
     >
       <Card className="flex flex-col h-full">
         <Image
-          height={320}
+          layout="constrained"
+          height={300}
+          width={700}
           alt={name}
           src={image?.image_url || AstronautPlaceholder}
-          aspectRatio={750 / 320}
           className="object-cover w-full object-center h-80 rounded-t-xl"
         />
         <CardHeader className="flex justify-between items-center">

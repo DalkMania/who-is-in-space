@@ -26,7 +26,7 @@ export const ISSMap = ({ latitude, longitude, ...props }: MapProps) => {
       scrollWheelZoom={false}
     >
       <TileLayer
-        url="http://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png"
+        url="https://services.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
       <Marker position={[latitude, longitude]} icon={ISSIcon} />

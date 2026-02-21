@@ -22,6 +22,7 @@ export const ArticleCard = ({
     <Link to={url} target="_blank">
       <Card className="flex flex-col h-full">
         <Image
+          layout="constrained"
           alt={title}
           src={image_url || NasaPlaceholder}
           height={400}

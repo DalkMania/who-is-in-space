@@ -35,6 +35,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
     ],
   }),
+  notFoundComponent: () => {
+    return <p>This setting page doesn't exist!</p>
+  },
 
   shellComponent: RootComponent,
 })
