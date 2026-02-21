@@ -31,10 +31,7 @@ export const PostPagination = ({
       for (let i = 1; i <= numPages; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink
-              href={`/articles/${i}`}
-              isActive={currentPage === i}
-            >
+            <PaginationLink to={`/articles/${i}`} isActive={currentPage === i}>
               {i}
             </PaginationLink>
           </PaginationItem>,
@@ -43,7 +40,7 @@ export const PostPagination = ({
     } else {
       items.push(
         <PaginationItem key={1}>
-          <PaginationLink href={`/articles/`} isActive={currentPage === 1}>
+          <PaginationLink to={`/articles/`} isActive={currentPage === 1}>
             1
           </PaginationLink>
         </PaginationItem>,
@@ -63,10 +60,7 @@ export const PostPagination = ({
       for (let i = start; i <= end; i++) {
         items.push(
           <PaginationItem key={i}>
-            <PaginationLink
-              href={`/articles/${i}`}
-              isActive={currentPage === i}
-            >
+            <PaginationLink to={`/articles/${i}`} isActive={currentPage === i}>
               {i}
             </PaginationLink>
           </PaginationItem>,
@@ -84,7 +78,7 @@ export const PostPagination = ({
       items.push(
         <PaginationItem key={numPages}>
           <PaginationLink
-            href={`/articles/${numPages}`}
+            to={`/articles/${numPages}`}
             isActive={currentPage === numPages}
           >
             {numPages}
@@ -100,7 +94,7 @@ export const PostPagination = ({
     <Pagination className="py-8">
       <PaginationContent>
         <PaginationPrevious
-          href={`/articles/${currentPage - 1}`}
+          to={`/articles/${currentPage - 1}`}
           aria-disabled={currentPage === 1}
           tabIndex={currentPage <= 1 ? -1 : undefined}
           className={
@@ -113,7 +107,7 @@ export const PostPagination = ({
         {renderPageNumbers()}
 
         <PaginationNext
-          href={`/articles/${currentPage + 1}`}
+          to={`/articles/${currentPage + 1}`}
           aria-disabled={currentPage === numPages}
           tabIndex={currentPage === numPages ? -1 : undefined}
           className={
