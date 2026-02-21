@@ -18,9 +18,10 @@ export const App = () => {
         </p>
         <h2>Recent Articles from NASA</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 not-prose">
-          {results.map((item) => {
-            return <ArticleCard {...item} key={item.id} />
-          })}
+          {results.length > 0 &&
+            results.map((item) => {
+              return <ArticleCard {...item} key={item.id} />
+            })}
         </div>
       </div>
     </Container>

@@ -16,9 +16,8 @@ export const Articles = () => {
           Spaceflight-related news articles from NASA
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 not-prose">
-          {results?.map((item) => (
-            <ArticleCard {...item} key={item.id} />
-          ))}
+          {results.length > 0 &&
+            results.map((item) => <ArticleCard {...item} key={item.id} />)}
         </div>
       </div>
       <PostPagination totalResults={count} number={12} page={page} />
