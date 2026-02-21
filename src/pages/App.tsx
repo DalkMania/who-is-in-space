@@ -1,5 +1,5 @@
 import { Container } from '@/components/layout/Container'
-import { getRouteApi } from '@tanstack/react-router'
+import { ClientOnly, getRouteApi } from '@tanstack/react-router'
 import { ArticleCard } from '@/components/ArticleCard'
 
 export const App = () => {
@@ -18,10 +18,12 @@ export const App = () => {
         </p>
         <h2>Recent Articles from NASA</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 not-prose">
-          {results.length > 0 &&
-            results.map((item) => {
-              return <ArticleCard {...item} key={item.id} />
-            })}
+          <ClientOnly fallback={<p>Loading ...</p>}>
+            {results.length > 0 &&
+              results.map((item) => {
+                return <ArticleCard {...item} key={item.id} />
+              })}
+          </ClientOnly>
         </div>
       </div>
     </Container>
