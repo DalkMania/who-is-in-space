@@ -31,7 +31,7 @@ export const AstronautCard = ({
           height={300}
           width={700}
           alt={name}
-          src={image.image_url || AstronautPlaceholder}
+          src={image?.image_url || AstronautPlaceholder}
           className="object-cover w-full object-center h-80 rounded-t-xl"
         />
         <CardHeader className="flex justify-between items-center">
