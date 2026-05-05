@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import type { ArticleList } from '@/types'
 import { App } from '@/pages/App'
-import { ArticleList } from '@/types'
 
 export const Route = createFileRoute('/')({
   loader: async () => {

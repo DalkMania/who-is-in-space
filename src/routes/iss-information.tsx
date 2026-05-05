@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import type { ApiResponse } from '@/types'
 import { ISSInformation } from '@/pages/ISSInformation'
-import { ApiResponse } from '@/types'
 
 export const Route = createFileRoute('/iss-information')({
   loader: async () => {

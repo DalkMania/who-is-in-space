@@ -1,5 +1,5 @@
-import { Container } from '@/components/layout/Container'
 import { Image } from '@unpic/react'
+import { Container } from '@/components/layout/Container'
 import ISS from '@/assets/images/iss-image.webp'
 
 export const About = () => {

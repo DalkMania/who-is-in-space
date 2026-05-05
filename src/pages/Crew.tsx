@@ -1,5 +1,5 @@
-import { Container } from '@/components/layout/Container'
 import { getRouteApi } from '@tanstack/react-router'
+import { Container } from '@/components/layout/Container'
 import { AstronautCard } from '@/components/AstronautCard'
 
 export const Crew = () => {
@@ -18,7 +18,7 @@ export const Crew = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
-          {results?.map((item) => (
+          {results.map((item) => (
             <AstronautCard {...item} key={item.id} />
           ))}
         </div>

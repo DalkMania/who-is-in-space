@@ -1,5 +1,5 @@
-import { formatNumber } from '@/lib/utils'
 import { Card, CardContent, CardHeader } from '../ui/card'
+import { formatNumber } from '@/lib/utils'
 
 type InformationProps = {
   latitude: number

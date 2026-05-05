@@ -26,7 +26,7 @@ export type Article = {
 
 export type ArticleList = {
   count: number
-  results: Article[]
+  results: Array<Article>
 }
 
 type Country = {
@@ -45,7 +45,7 @@ export type Crew = {
   image: {
     image_url: string | null
   }
-  nationality: Country[]
+  nationality: Array<Country>
   flights_count: number
   landings_count: number
   spacewalks_count: number
@@ -54,7 +54,7 @@ export type Crew = {
 
 export type CrewList = {
   count: number
-  results: Crew[]
+  results: Array<Crew>
 }
 
 export type WikiResponse = {

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import type { CrewList } from '@/types'
 import { Crew } from '@/pages/Crew'
-import { CrewList } from '@/types'
 
 export const Route = createFileRoute('/crew/')({
   loader: async () => {

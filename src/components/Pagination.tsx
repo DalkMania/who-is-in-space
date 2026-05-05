@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import {
   Pagination,
   PaginationContent,
@@ -24,7 +24,7 @@ export const PostPagination = ({
   const currentPage = Number(page) || 1
 
   const renderPageNumbers = () => {
-    const items: ReactNode[] = []
+    const items: Array<ReactNode> = []
     const maxVisiblePages = 5
 
     if (numPages <= maxVisiblePages) {

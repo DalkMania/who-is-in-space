@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 
-import { Container } from '@/components/layout/Container'
-import { useSticky } from '@/hooks/useSticky'
 import { Link } from '@tanstack/react-router'
 import { Navigation } from '../Navigation'
+import { Container } from '@/components/layout/Container'
+import { useSticky } from '@/hooks/useSticky'
 
 export const Header = () => {
   const headerRef = useRef(null)

@@ -1,5 +1,5 @@
-import { WikiResponse } from '@/types'
 import { useQuery } from '@tanstack/react-query'
+import type { WikiResponse } from '@/types'
 
 export const useWikipedia = (title: string) =>
   useQuery({

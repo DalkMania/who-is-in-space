@@ -1,7 +1,7 @@
-import { Article } from '@/types'
 import { Link } from '@tanstack/react-router'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Image } from '@unpic/react'
+import type { Article } from '@/types'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import NasaPlaceholder from '@/assets/images/nasa-placeholder.jpg'
 import { truncate } from '@/lib/utils'
 

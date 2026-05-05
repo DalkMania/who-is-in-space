@@ -1,5 +1,5 @@
-import { Container } from '@/components/layout/Container'
 import { ClientOnly, getRouteApi } from '@tanstack/react-router'
+import { Container } from '@/components/layout/Container'
 import { ArticleCard } from '@/components/ArticleCard'
 
 export const App = () => {

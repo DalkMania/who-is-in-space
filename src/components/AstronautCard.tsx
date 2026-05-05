@@ -1,7 +1,7 @@
-import { Crew } from '@/types'
 import { Link } from '@tanstack/react-router'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Image } from '@unpic/react'
+import type { Crew } from '@/types'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import AstronautPlaceholder from '@/assets/images/astronaut-placeholder.jpg'
 import { slugify } from '@/lib/utils'
 
@@ -31,7 +31,7 @@ export const AstronautCard = ({
           height={300}
           width={700}
           alt={name}
-          src={image?.image_url || AstronautPlaceholder}
+          src={image.image_url || AstronautPlaceholder}
           className="object-cover w-full object-center h-80 rounded-t-xl"
         />
         <CardHeader className="flex justify-between items-center">
