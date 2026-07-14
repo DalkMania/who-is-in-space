@@ -22,8 +22,7 @@ export const CrewDetail = () => {
         <h1 className="w-full text-center">{crew.name}</h1>
         <div
           dangerouslySetInnerHTML={{
-            __html:
-              sanitizedData.length > 0 ? sanitizedData : crew.bio,
+            __html: sanitizedData.length > 0 ? sanitizedData : crew.bio,
           }}
         />
       </div>
