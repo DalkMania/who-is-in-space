@@ -1,7 +1,7 @@
-import {  clsx } from 'clsx'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import sanitizeHtml from 'sanitize-html'
-import type {ClassValue} from 'clsx';
+import * as sanitizeHtml from 'sanitize-html'
+import type { ClassValue } from 'clsx'
 
 export function cn(...inputs: Array<ClassValue>) {
   return twMerge(clsx(inputs))
@@ -19,7 +19,8 @@ export function truncate(str: string, maxlength: number) {
 }
 
 export function sanitizeWikipediaEntry(data: string): string {
-  return sanitizeHtml(data)
+  return sanitizeHtml
+    .default(data)
     .replaceAll('\n', '')
     .replaceAll('<p></p>', '')
     .replace(
