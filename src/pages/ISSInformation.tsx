@@ -1,12 +1,10 @@
-import { ClientOnly, getRouteApi } from '@tanstack/react-router'
+import { ClientOnly } from '@tanstack/react-router'
 import { useISSPosition } from '@/queries/useISSPosition'
 import { Loader } from '@/components/Loader'
 import { ISSMap } from '@/components/map/ISSMap'
 
 export const ISSInformation = () => {
-  const routeApi = getRouteApi('/iss-information')
-  const initialData = routeApi.useLoaderData()
-  const { data: position, isFetched } = useISSPosition(initialData)
+  const { data: position, isFetched } = useISSPosition()
 
   return (
     <ClientOnly fallback={<Loader />}>
