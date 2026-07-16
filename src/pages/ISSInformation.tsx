@@ -4,11 +4,9 @@ import { Loader } from '@/components/Loader'
 import { ISSMap } from '@/components/map/ISSMap'
 
 export const ISSInformation = () => {
-  const { data: position, isFetched } = useISSPosition()
+  const { data: position, isLoading } = useISSPosition()
 
   return (
-    <ClientOnly fallback={<Loader />}>
-      {isFetched && position && <ISSMap {...position} />}
-    </ClientOnly>
+    <ClientOnly>{isLoading ? <Loader /> : <ISSMap {...position} />}</ClientOnly>
   )
 }
