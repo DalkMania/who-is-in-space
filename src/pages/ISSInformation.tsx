@@ -6,11 +6,11 @@ import { ISSMap } from '@/components/map/ISSMap'
 export const ISSInformation = () => {
   const routeApi = getRouteApi('/iss-information')
   const initialData = routeApi.useLoaderData()
-  const { data: position, isLoading } = useISSPosition(initialData)
+  const { data: position } = useISSPosition(initialData)
 
   return (
-    <ClientOnly>
-      {isLoading || !position ? <Loader /> : <ISSMap {...position} />}
+    <ClientOnly fallback={<Loader />}>
+      {!position ? <Loader /> : <ISSMap {...position} />}
     </ClientOnly>
   )
 }
