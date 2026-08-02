@@ -2,14 +2,9 @@ import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 import { UpdateMapCenter } from './UpdateMapCenter'
 import { ISSIcon } from './ISSIcon'
 import { ISSInfoCard } from './ISSInfoCard'
+import type { ApiResponse } from '@/types'
 
-export type MapProps = {
-  latitude: number
-  longitude: number
-  altitude: number
-  velocity: number
-  units: 'kilometers' | 'miles'
-}
+export type MapProps = ApiResponse
 
 export const ISSMap = ({ latitude, longitude, ...props }: MapProps) => {
   return (

@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import type { ApiResponse } from '@/types'
 
-export const useISSPosition = () =>
+export const useISSPosition = (initialData: ApiResponse) =>
   useQuery({
     queryKey: ['position'],
     refetchInterval: 3000,
     refetchOnWindowFocus: true,
+    initialData: () => initialData,
     queryFn: async () => {
       try {
         const response = await fetch(
