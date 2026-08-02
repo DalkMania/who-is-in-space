@@ -9,6 +9,8 @@ export const ISSInformation = () => {
   const { data: position, isLoading } = useISSPosition(initialData)
 
   return (
-    <ClientOnly>{isLoading ? <Loader /> : <ISSMap {...position} />}</ClientOnly>
+    <ClientOnly>
+      {isLoading || !position ? <Loader /> : <ISSMap {...position} />}
+    </ClientOnly>
   )
 }
