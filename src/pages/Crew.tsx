@@ -14,7 +14,7 @@ export const Crew = () => {
           The International Space Station (ISS) mission is to serve as a unique
           microgravity laboratory for scientific research, enabling long-term
           human space exploration and providing benefits to Earth. These are the
-          astronauts currently in space.
+          astronauts currently on the ISS.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-8 not-prose">
