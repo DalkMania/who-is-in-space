@@ -25,7 +25,7 @@ export const getCurrentCrew = createServerFn({ method: 'GET' }).handler(
           'https://ll.thespacedevs.com/2.3.0/expeditions/?is_active=true&mode=detailed&space_station=4&format=json',
         ),
         fetch(
-          'https://ll.thespacedevs.com/2.3.0/astronauts/?format=json&in_space=true&is_human=true&ordering=time_in_space&limit=50',
+          'https://ll.thespacedevs.com/2.3.0/astronauts/?format=json&in_space=true&is_human=true&ordering=-time_in_space&limit=50',
         ),
       ])
 
