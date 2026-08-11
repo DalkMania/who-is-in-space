@@ -1,6 +1,6 @@
 import { getStore } from '@netlify/blobs'
 import { createServerFn } from '@tanstack/react-start'
-import type { CrewList, CacheMetadata } from '@/types'
+import type { CrewList, CacheMetadata, Crew } from '@/types'
 
 const CACHE_KEY = 'iss-crew'
 const CACHE_TTL = 3 * 24 * 60 * 60 * 1000
@@ -25,7 +25,7 @@ export const getCurrentCrew = createServerFn({ method: 'GET' }).handler(
           'https://ll.thespacedevs.com/2.3.0/expeditions/?is_active=true&mode=detailed&space_station=4&format=json',
         ),
         fetch(
-          'https://ll.thespacedevs.com/2.3.0/astronauts/?format=json&in_space=true&is_human=true&ordering=-time_in_space&limit=50',
+          'https://ll.thespacedevs.com/2.3.0/astronauts/?format=json&in_space=true&is_human=true&ordering=time_in_space&limit=50',
         ),
       ])
 
@@ -33,20 +33,15 @@ export const getCurrentCrew = createServerFn({ method: 'GET' }).handler(
         throw new Error('ISS crew request failed')
       }
 
-      const expedition = (await expeditionResponse.json()) as {
-        crew: Array<{ astronaut: { id: number } }>
-      }
+      const {
+        results: [{ crew }],
+      } = await expeditionResponse.json()
 
-      const astronauts = (await astronautsResponse.json()) as CrewList
-      const astronautsById = new Map(
-        astronauts.results.map((astronaut) => [astronaut.id, astronaut]),
-      )
-      const results = expedition.crew
-        .map(({ astronaut }) => astronautsById.get(astronaut.id))
-        .filter((astronaut): astronaut is CrewList['results'][number] =>
-          Boolean(astronaut),
-        )
-      const data = { count: results.length, results }
+      const { results: astronauts } = await astronautsResponse.json()
+
+      const crewIds = crew.map(({ astronaut }: any) => astronaut.id)
+      const results = astronauts.filter(({ id }: Crew) => crewIds.includes(id))
+      const data = { count: results.length, results } as CrewList
 
       await store.setJSON(CACHE_KEY, data, {
         metadata: { expiresAt: Date.now() + CACHE_TTL } as CacheMetadata,
