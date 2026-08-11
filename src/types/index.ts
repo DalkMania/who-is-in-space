@@ -63,3 +63,7 @@ export type WikiResponse = {
   title: string
   extract: string
 }
+
+export type CacheMetadata = {
+  expiresAt: number
+}
