@@ -9,7 +9,7 @@ export const Route = createFileRoute('/crew/$slug')({
         content: 'Information about an astronaut currently in space.',
       },
       {
-        title: `Who's in Space | Crew Information`,
+        title: `Crew Information | Who's in Space`,
       },
     ],
   }),

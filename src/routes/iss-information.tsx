@@ -16,7 +16,7 @@ export const Route = createFileRoute('/iss-information')({
         content: 'Where is the ISS right now?',
       },
       {
-        title: "Who's in Space | ISS Information",
+        title: "ISS Information | Who's in Space",
       },
     ],
   }),

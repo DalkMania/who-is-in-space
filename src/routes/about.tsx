@@ -7,10 +7,10 @@ export const Route = createFileRoute('/about')({
       {
         name: 'description',
         content:
-          ' The International Space Station (ISS) mission is to serve as a unique microgravity laboratory for scientific research, enabling long-term human space exploration and providing benefits to Earth.',
+          'The International Space Station (ISS) mission is to serve as a unique microgravity laboratory for scientific research, enabling long-term human space exploration and providing benefits to Earth.',
       },
       {
-        title: "Who's in Space | About",
+        title: "About | Who's in Space",
       },
     ],
   }),

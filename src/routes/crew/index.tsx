@@ -14,7 +14,7 @@ export const Route = createFileRoute('/crew/')({
           'These are the astronauts currently onboard the International Space Station.',
       },
       {
-        title: "Who's in Space | Crew",
+        title: "Crew | Who's in Space",
       },
     ],
   }),

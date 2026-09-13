@@ -19,7 +19,7 @@ export const Route = createFileRoute('/articles/{-$page}')({
         content: 'Spaceflight-related news articles from NASA.',
       },
       {
-        title: `Who's in Space | Articles from Nasa ${Number(params.page) > 1 ? `Page ${Number(params.page)}` : ``}`,
+        title: `Articles from Nasa ${Number(params.page) > 1 ? `Page ${Number(params.page)}` : ``} | Who's in Space`,
       },
     ],
   }),
