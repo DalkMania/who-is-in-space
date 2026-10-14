@@ -9,16 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IssInformationRouteImport } from './routes/iss-information'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IssInformationRouteImport } from './routes/iss-information'
+import { Route as ArticlesChar123PageChar125RouteImport } from './routes/articles/{-$page}'
 import { Route as CrewIndexRouteImport } from './routes/crew/index'
 import { Route as CrewSlugRouteImport } from './routes/crew/$slug'
-import { Route as ArticlesChar123PageChar125RouteImport } from './routes/articles/{-$page}'
 
-const IssInformationRoute = IssInformationRouteImport.update({
-  id: '/iss-information',
-  path: '/iss-information',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -26,11 +26,17 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const IssInformationRoute = IssInformationRouteImport.update({
+  id: '/iss-information',
+  path: '/iss-information',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArticlesChar123PageChar125Route =
+  ArticlesChar123PageChar125RouteImport.update({
+    id: '/articles/{-$page}',
+    path: '/articles/{-$page}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CrewIndexRoute = CrewIndexRouteImport.update({
   id: '/crew/',
   path: '/crew/',
@@ -41,12 +47,6 @@ const CrewSlugRoute = CrewSlugRouteImport.update({
   path: '/crew/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ArticlesChar123PageChar125Route =
-  ArticlesChar123PageChar125RouteImport.update({
-    id: '/articles/{-$page}',
-    path: '/articles/{-$page}',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -111,11 +111,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/iss-information': {
-      id: '/iss-information'
-      path: '/iss-information'
-      fullPath: '/iss-information'
-      preLoaderRoute: typeof IssInformationRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -125,11 +125,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/iss-information': {
+      id: '/iss-information'
+      path: '/iss-information'
+      fullPath: '/iss-information'
+      preLoaderRoute: typeof IssInformationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/{-$page}': {
+      id: '/articles/{-$page}'
+      path: '/articles/{-$page}'
+      fullPath: '/articles/{-$page}'
+      preLoaderRoute: typeof ArticlesChar123PageChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/crew/': {
@@ -144,13 +151,6 @@ declare module '@tanstack/react-router' {
       path: '/crew/$slug'
       fullPath: '/crew/$slug'
       preLoaderRoute: typeof CrewSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/articles/{-$page}': {
-      id: '/articles/{-$page}'
-      path: '/articles/{-$page}'
-      fullPath: '/articles/{-$page}'
-      preLoaderRoute: typeof ArticlesChar123PageChar125RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
